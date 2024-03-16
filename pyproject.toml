@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "image-text-retrieval"
+version = "0.1.0"
+description = "A cool repo to experiment with image and text retrieval"
+authors = ["paluchasz <paluchasz@googlemail.com>"]
+readme = "readme.md"
+packages = [{include = "image_text_retrieval"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+torch = "^2.2.1"
+pydantic = "^2.6.4"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.3.3"
+mypy = "^1.9.0"
+black = "^24.3.0"
+pre-commit = "^3.6.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
