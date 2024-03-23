@@ -27,7 +27,7 @@ dataset = datasets.Dataset.from_dict({"image": [str(path) for path in image_path
 
 @router.post("/retrieve_image_from_text")
 async def retrieve_image_from_text(request_data: models.TextToImageRequestData) -> fastapi.Response:
-    predictions = settings.get_settings().image_text_retriever.predict_image_from_text([data["image"] for data in dataset], request_data.text)
+    predictions = settings.get_settings().image_text_retriever.predict_image_from_text(dataset["image"], request_data.text)
     predictions = sorted(predictions, key=lambda x: x[1], reverse=True)
     img_byte_arr = io.BytesIO()
     predictions[0][0].save(img_byte_arr, format="PNG")
