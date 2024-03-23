@@ -57,7 +57,7 @@ warn_required_dynamic_aliases = true
 warn_untyped_fields = true
 
 [[tool.mypy.overrides]]
-module = ["transformers", "datasets", "pandas"]
+module = ["transformers", "datasets", "pandas", "tqdm"]
 ignore_missing_imports = true
 
 [tool.ruff]
