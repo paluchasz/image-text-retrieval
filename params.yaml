@@ -1,0 +1,5 @@
+pre_compute_embeddings:
+  image_dir: data/images
+  output_dir: data/embeddings
+  image_embeddings_file_name: image_embeddings.npy
+  index_to_image_mapping_file_name: index_to_image_mapping.pkl

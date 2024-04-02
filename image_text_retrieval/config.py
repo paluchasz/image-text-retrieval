@@ -4,8 +4,8 @@ import pydantic_settings
 
 
 class EnvVars(pydantic_settings.BaseSettings):
-    IMAGE_EMBEDDINGS_PATH: Path = Path("data/embeddings_all.npy")
-    INDEX_TO_IMAGE_MAPPING: Path = Path("data/index_to_image_mapping_all.pkl")
+    IMAGE_EMBEDDINGS_PATH: Path = Path("data/embeddings/image_embeddings.npy")
+    INDEX_TO_IMAGE_MAPPING: Path = Path("data/embeddings/index_to_image_mapping.pkl")
 
 
 ENV_VARS = EnvVars()
