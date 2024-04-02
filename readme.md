@@ -1,4 +1,4 @@
-A repo for cool image, text retrieval using OpenAI's [ClIP](https://arxiv.org/abs/2103.00020) model. For information about how CLIP works see my
+A repo for cool image, text retrieval using OpenAI's [CLIP](https://arxiv.org/abs/2103.00020) model. For information about how CLIP works see my
 article on [Medium](https://medium.com/@paluchasz/understanding-openais-clip-model-6b52bade3fa3).
 
 ## Data
