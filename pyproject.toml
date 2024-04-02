@@ -70,6 +70,7 @@ module = [
     "dvc",
     "dvc.api",
     "scipy",
+    "pickle",
 ]
 ignore_missing_imports = true
 

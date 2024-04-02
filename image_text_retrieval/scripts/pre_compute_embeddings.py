@@ -5,7 +5,8 @@ import dvc.api
 import numpy as np
 from loguru import logger
 
-from image_text_retrieval import clip, params_models
+from image_text_retrieval import params_models
+from image_text_retrieval.ai import clip
 
 
 def main() -> None:

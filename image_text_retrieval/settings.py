@@ -2,7 +2,8 @@ import functools
 
 import pydantic_settings
 
-from image_text_retrieval import clip, config
+from image_text_retrieval import config
+from image_text_retrieval.ai import clip
 
 
 class Settings(pydantic_settings.BaseSettings):
