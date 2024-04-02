@@ -1,9 +1,9 @@
 import functools
-from pathlib import Path
 
 import pydantic_settings
 
-from image_text_retrieval import clip
+from image_text_retrieval import config
+from image_text_retrieval.ai import clip
 
 
 class Settings(pydantic_settings.BaseSettings):
@@ -13,6 +13,6 @@ class Settings(pydantic_settings.BaseSettings):
 @functools.lru_cache()
 def get_settings() -> Settings:
     image_text_retriever = clip.ImageTextRetriever(
-        image_embeddings_path=Path("data/embeddings_all.npy"), index_to_image_mapping=Path("data/index_to_image_mapping_all.pkl")
-    )  # Todo make env vars
+        image_embeddings_path=config.ENV_VARS.IMAGE_EMBEDDINGS_PATH, index_to_image_mapping=config.ENV_VARS.INDEX_TO_IMAGE_MAPPING
+    )
     return Settings(image_text_retriever=image_text_retriever)

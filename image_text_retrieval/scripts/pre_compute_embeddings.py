@@ -1,20 +1,23 @@
 import pickle
-from pathlib import Path
 
 import datasets
+import dvc.api
 import numpy as np
 from loguru import logger
 
-from image_text_retrieval import clip
+from image_text_retrieval import params_models
+from image_text_retrieval.ai import clip
 
 
 def main() -> None:
-    # Todo set up with DVC
-    logger.info("Running script")
-    retriever = clip.ImageTextRetriever()
+    logger.info("Running script to pre-compute embeddings into a file")
+    dvc_params = dvc.api.params_show()
+    params = params_models.PreComputeEmbeddingsParams(**dvc_params)
 
-    image_dir = Path("data/images")
-    image_paths = [path for path in image_dir.iterdir() if path.suffix == ".jpg"]
+    retriever = clip.ImageTextRetriever()
+    logger.info("Loaded retriever")
+
+    image_paths = [path for path in params.image_dir.iterdir() if path.suffix in {".jpg", ".jpeg", ".png"}]
     logger.info("Loading images")
     dataset = datasets.Dataset.from_dict({"image": [str(path) for path in image_paths]}).cast_column("image", datasets.Image())
 
@@ -22,8 +25,10 @@ def main() -> None:
     image_embeddings = retriever.generate_image_embeddings(dataset["image"], batch_size=32)
     idx_to_image_mapping = dict(enumerate(image_paths))
 
-    np.save("data/embeddings.npy", image_embeddings)
-    with open("data/index_to_image_mapping.pkl", "wb") as file:
+    logger.info(f"Saving out embeddings and mappings in {params.output_dir}")
+    params.output_dir.mkdir(exist_ok=True, parents=True)
+    np.save(params.image_embeddings_file_path, image_embeddings)
+    with open(params.index_to_mapping_file_path, "wb") as file:
         pickle.dump(idx_to_image_mapping, file)
 
 
