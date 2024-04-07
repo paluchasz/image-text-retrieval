@@ -13,3 +13,4 @@ be ran with the `pre_compute_embeddings` command. It uses dvc to store the scrip
 expects a directory of images (`data/images` by default) and it saves out the embeddings a mapping file in two different files.
 3. To run the backend api use the command `image_text_retrieval_api` and go to `http://0.0.0.0:8000/docs` in the browser to get an interactive swagger:
 ![Screenshot of swagger docs](resources/swagger.png)
+4. To run the streamlit ui run `streamlit run image_text_retrieval/ui/app_ui.py` and it should open in the browser
