@@ -3,7 +3,7 @@ article on [Medium](https://medium.com/@paluchasz/understanding-openais-clip-mod
 
 ## Data
 Using the following Flickr 8K dataset from [Kaggle](https://www.kaggle.com/datasets/adityajn105/flickr8k). It contains a variety of images each paired
-with 5 different captions.
+with 5 different captions. A few example images and captions can be found in the `sample_data` folder.
 
 ## Running Locally
 1. Install all the dependencies with [poetry](https://python-poetry.org/) using `poetry install`. It is recommended to have the virtual environments
