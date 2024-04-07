@@ -1,5 +1,9 @@
 pre_compute_embeddings:
   image_dir: data/images
+  captions_file_path: data/captions.csv
   output_dir: data/embeddings
   image_embeddings_file_name: image_embeddings.npy
   index_to_image_mapping_file_name: index_to_image_mapping.pkl
+  text_embeddings_file_name: text_embeddings.npy
+  index_to_text_mapping_file_name: index_to_text_mapping.pkl
+  batch_size: 32
